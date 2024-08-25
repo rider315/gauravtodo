@@ -108,43 +108,88 @@
 
   /* Existing styles remain the same */
 
-  .dropdown-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 20px 0;
+  /* Dropdown container */
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.dropdown-container label {
+  color: #333;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.dropdown-container input {
+  margin-right: 10px;
+}
+
+/* Styles to ensure the response is fully visible with scrolling */
+.response-output {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 100%;
+  overflow-x: auto;  /* Allows horizontal scroll for wide data */
+  max-height: 400px;  /* Restricts height and allows vertical scrolling */
+  overflow-y: auto;
+}
+
+/* Add this to your existing CSS */
+
+/* Set the orientation of the page to portrait */
+@media (orientation: portrait) {
+    body, html {
+      height: 100vh; /* Set the height to the full height of the viewport */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #496f42;
+    }
   }
   
-  .dropdown-container label {
-    margin: 10px 0;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
+  /* Set the orientation of the page to landscape */
+  @media (orientation: landscape) {
+    body, html {
+      height: 100vh; /* Set the height to the full height of the viewport */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #496f42;
+    }
   }
   
-  .dropdown-container input {
-    margin-right: 10px;
+  /* Ensure the design is not affected by the orientation change */
+  .container {
+    max-width: 800px; /* Set a maximum width to prevent the container from stretching too wide */
+    width: 100%; /* Set the width to 100% to fill the available space */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensures proper positioning for elements inside */
   }
   
-  /* Additional styles to ensure the dropdown is properly displayed */
-  .dropdown-container {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  /* Add this to your existing CSS to ensure the response output is fully visible with scrolling */
   
-  .dropdown-container label {
-    color: #333;
-  }
-  
-  /* Style for response output */
   .response-output {
     background-color: #f5f5f5;
     padding: 15px;
     border-radius: 5px;
-    max-width: 100%;
-    overflow-x: auto;
+    max-width: 100%; /* Prevents overflow */
+    max-height: 200px; /* Restricts height and allows vertical scrolling */
+    overflow-y: auto; /* Allows vertical scrolling */
+    overflow-x: auto; /* Allows horizontal scrolling */
   }
-
