@@ -65,7 +65,7 @@ const App = () => {
       <div className="info">
         <p className="info-item">Name: Gaurav Chaudhary</p>
         <p className="info-item">Mail: gaurav.chaudhary2021@vitstudent.ac.in</p>
-        <h2 className="scroll-heading">Scroll down to see the full response and dropdown menu after sumbit</h2>
+        <h2 className="scroll-heading">Scroll down to see the full response and dropdown menu after submit</h2>
       </div>
       <form onSubmit={handleSubmit} className="form">
         <textarea
