@@ -1,30 +1,41 @@
 import express from 'express';
-import cors from 'cors';
 import bodyParser from 'body-parser';
-import Connection from './database/db.js';
-import Routes from './routes/route.js';
-import { trusted } from 'mongoose';
+import cors from 'cors';  // Import the cors package
 
 const app = express();
-// app.use(cors());
-app.use(cors({
-    origin: '*',
-  }));
-  
+const port = process.env.PORT || 3000;
 
-  // yes i have made these chanages
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }))
+// Use CORS middleware
+app.use(cors());  // This allows all origins by default
 
-app.use('/', Routes);
-const PORT = 5001;
-app.listen(PORT, () => console.log(`Your server is running successfully on PORT ${PORT}`));
-Connection();
+app.use(bodyParser.json());
 
+app.post('/bfhl', (req, res) => {
+  try {
+    const data = req.body.data || [];
+    const numbers = data.filter(item => !isNaN(item));
+    const alphabets = data.filter(item => isNaN(item));
+    const lowercaseAlphabets = alphabets.filter(item => item === item.toLowerCase());
+    const highestLowercaseAlphabet = lowercaseAlphabets.length > 0 ? [lowercaseAlphabets[lowercaseAlphabets.length - 1]] : [];
 
+    res.json({
+      is_success: true,
+      user_id: "john_doe_17091999",
+      email: "john@xyz.com",
+      roll_number: "ABCD123",
+      numbers,
+      alphabets,
+      highest_lowercase_alphabet: highestLowercaseAlphabet
+    });
+  } catch (error) {
+    res.status(500).json({ is_success: false, message: 'Server error' });
+  }
+});
 
+app.get('/bfhl', (req, res) => {
+  res.json({ operation_code: 1 });
+});
 
-
-
-
-
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
