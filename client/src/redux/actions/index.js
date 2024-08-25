@@ -19,6 +19,7 @@ export const addNewTodo = (data) => async (dispatch) => {
     }
 }
 
+
 export const getAllTodos = () => async (dispatch) => {
     try {
         const res = await axios.get(`${API_URL}/todos`);
