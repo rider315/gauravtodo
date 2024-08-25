@@ -25,7 +25,7 @@ const App = () => {
       const parsedInput = JSON.parse(input);
 
       // Make POST request to the backend
-      const res = await axios.post('http://localhost:3000/bfhl', parsedInput);
+      const res = await axios.post('http://localhost:5001/bfhl', parsedInput);
       
       // Set response data and show response
       setResponse(res.data);
