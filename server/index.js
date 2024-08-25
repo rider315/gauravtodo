@@ -5,10 +5,16 @@ import bodyParser from 'body-parser';
 const app = express();
 const port = 5001;
 
-// Middleware
+// Middleware for CORS
 app.use(cors({
-  origin: '*',
+  origin: 'https://gauravchaudhary.online',  // Allow only your frontend domain
+  methods: 'GET, POST, OPTIONS',
+  allowedHeaders: 'Content-Type',
+  credentials: true,  // Allow credentials if necessary (set to true if using cookies, etc.)
 }));
+
+app.options('*', cors());  // Handle preflight requests for all routes
+
 app.use(bodyParser.json());
 
 // Route
