@@ -105,3 +105,46 @@
     max-width: 100%; /* Prevents overflow */
   }
   
+
+  /* Existing styles remain the same */
+
+  .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+  }
+  
+  .dropdown-container label {
+    margin: 10px 0;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-container input {
+    margin-right: 10px;
+  }
+  
+  /* Additional styles to ensure the dropdown is properly displayed */
+  .dropdown-container {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-container label {
+    color: #333;
+  }
+  
+  /* Style for response output */
+  .response-output {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
