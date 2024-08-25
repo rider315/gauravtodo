@@ -30,6 +30,7 @@ export const getAllTodos = () => async (dispatch) => {
 }
 
 
+
 export const toggleTodo = (id) => async (dispatch) => {
     try {
         const res = await axios.get(`${API_URL}/todos/${id}`);
