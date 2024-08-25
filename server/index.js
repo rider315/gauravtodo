@@ -17,6 +17,7 @@ app.options('*', cors());  // Handle preflight requests for all routes
 
 app.use(bodyParser.json());
 
+
 // Route
 app.post('/bfhl', (req, res) => {
   console.log('Received data:', req.body);
