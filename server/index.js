@@ -7,11 +7,12 @@ const port = 5001;
 
 // Middleware for CORS
 app.use(cors({
-  origin: 'https://gauravchaudhary.online',  // Allow only your frontend domain
+  origin: ['https://gauravchaudhary.online', 'http://localhost:5001', 'http://localhost:5173'],  // Allow multiple origins
   methods: 'GET, POST, OPTIONS',
   allowedHeaders: 'Content-Type',
   credentials: true,  // Allow credentials if necessary (set to true if using cookies, etc.)
 }));
+
 
 app.options('*', cors());  // Handle preflight requests for all routes
 
